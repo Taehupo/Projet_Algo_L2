@@ -10,7 +10,8 @@ typedef struct
 }ville;
 
 void init_ville(ville *, uint, uint);
-uint get_abs(ville *);
-uint get_ord(ville *);
+uint get_abs(ville);
+uint get_ord(ville);
+void display_all_ville(ville *, int);
 
 #endif

@@ -1,17 +1,17 @@
-app: sources/villes.o sources/voie.o sources/ligne.o sources/main.o
-	gcc -Wall -g -o app main.o villes.o voie.o ligne.o
+app: villes.o voie.o ligne.o main.o
+	gcc -Wall -g -std=c99 -o app main.o villes.o voie.o ligne.o
 
-sources/main.o: sources/main.c
-	gcc -Wall -g -c sources/main.c
+main.o: sources/main.c
+	gcc -Wall -g -std=c99 -c sources/main.c
 
-sources/villes.o: sources/villes.c
-	gcc -Wall -g -c sources/villes.c
+villes.o: sources/villes.c
+	gcc -Wall -g -std=c99 -c sources/villes.c
 
-sources/voie.o: sources/voie.c
-	gcc -Wall -g -c sources/voie.c
+voie.o: sources/voie.c
+	gcc -Wall -g -std=c99 -c sources/voie.c
 
-sources/ligne.o: sources/ligne.c
-	gcc -Wall -g -c sources/ligne.c
+ligne.o: sources/ligne.c
+	gcc -Wall -g -std=c99 -c sources/ligne.c
 
 clean_o:
 	rm -f *.o
