@@ -3,6 +3,7 @@
 
 #include "../headers/villes.h"
 #include "../headers/voie.h"
+#include "../headers/ligne.h"
 
 int main(int argc, char const *argv[])
 {
