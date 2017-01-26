@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "villes.h"
+#include "../headers/villes.h"
 
 void init_ville(ville * city, uint abs, uint ord)
 {
-	ville->abscisse = abs;
-	ville->ordonnee = ord;
+	city->abscisse = abs;
+	city->ordonnee = ord;
 }
 
 uint get_abs(ville * city)
