@@ -14,20 +14,21 @@ int main(int argc, char const *argv[])
 
 	ville * ville_table;
 
-	int table_size;
+	ligne * ligne_table;
+
+	int ville_table_size;
+	int ligne_table_size;
 
 	fichier = fopen("test", "r");
 
 	if (fichier != NULL)
 	{
 		fgets(parsing, 100, fichier);
-		table_size = atoi(parsing);
+		ville_table_size = atoi(parsing);
+		ville_table = (ville *) malloc(sizeof(ville) * ville_table_size);
+		printf("Il y a %d villes\n", ville_table_size);
 
-		printf("Il y a %d villes\n", table_size);
-
-		ville_table = (ville *) malloc(sizeof(ville) * table_size);
-
-		for (int i = 0; i < table_size; ++i)
+		for (int i = 0; i < ville_table_size; ++i)
 		{
 			fgets(parsing, 100, fichier);
 			int tmp1;
@@ -42,7 +43,13 @@ int main(int argc, char const *argv[])
 			tmp2 = atoi(parsing+j);
 			init_ville(&ville_table[i], tmp1, tmp2);
 		}
-		display_all_ville(ville_table, table_size);
+		display_all_ville(ville_table, ville_table_size);
+
+		fgets(parsing, 100, fichier);
+		ligne_table_size = atoi(parsing);
+		ligne_table = (ligne *) malloc(sizeof(ligne) * ligne_table_size);
+		printf("Il y as %d lignes\n", ligne_table_size);
+
 	}
 	else
 	{
