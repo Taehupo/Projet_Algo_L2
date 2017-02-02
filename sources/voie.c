@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "../headers/villes.h"
+#include "../headers/horaire.h"
 #include "../headers/voie.h"
 
 void init_voie(voie * init_target, ville * v1, ville * v2, uint temps)
