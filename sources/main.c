@@ -71,40 +71,40 @@ int main(int argc, char const *argv[])
 			fgets(parsing, 100, fichier);
 			int nb_pass_ligne = atoi(parsing);
 			init_horaire_table(&ligne_table[i], nb_pass_ligne, nb_ville_ligne);
+			printf("Ligne %d\n", i);
 			for (int x = 0; x < nb_pass_ligne; ++x)
 			{
 				fgets(parsing, 100, fichier);
 
-				int tmp_heure;
-				int tmp_minute;
+				int tmp_heure = 0;
+				int tmp_minute = 0;
 				int differentiateur = 0;
 				int y = 0;
+				int tmp_duree = 0;
 				char * tmp_horaire = strtok(parsing, " h");
 				while(tmp_horaire != NULL && y < nb_ville_ligne)
 				{
 					if (differentiateur == 0)
 					{
 						tmp_heure = atoi(tmp_horaire);
-						differentiateur = 1;
 					} 
 					else if (differentiateur == 1)
 					{
 						tmp_minute = atoi(tmp_horaire);
-						differentiateur = 2;
-					}
-					else if (differentiateur == 2)
-					{
-						int tmp_duree = calculer_horaire(tmp_heure, tmp_minute);
+						tmp_duree = calculer_horaire(tmp_heure, tmp_minute);
 						ligne_table[i].horaires[x][y] = tmp_duree;
-						differentiateur == 0;
+						tmp_heure = 0;
+						tmp_minute = 0;
 						y++;
 					}
+					if (differentiateur == 0)
+						differentiateur = 1;
+					else
+						differentiateur = 0;
 					tmp_horaire = strtok(NULL, " h");
 				}
-				
-				
 			}
-
+			afficher_horaires_all(ligne_table[i].horaires, nb_pass_ligne, nb_ville_ligne);
 		}
 	}
 	else
