@@ -7,6 +7,8 @@ typedef struct
 {
 	uint abscisse;
 	uint ordonnee;
+	int * in_ligne;
+	int * rank_ligne;
 }ville;
 
 void init_ville(ville *, uint, uint);

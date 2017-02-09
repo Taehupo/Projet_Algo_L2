@@ -16,8 +16,6 @@ ligne.o: sources/ligne.c
 horaire.o: sources/horaire.c
 	gcc -Wall -g -std=c99 -c sources/horaire.c
 
-clean_o:
+clean:
 	rm -f *.o
-
-clean_app:
 	rm -f app

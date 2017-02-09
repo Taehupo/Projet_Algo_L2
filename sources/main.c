@@ -67,11 +67,11 @@ int main(int argc, char const *argv[])
 				++j;
 				tmp_ville = strtok(NULL, " ");
 			}
+			printf("Ligne %d\n", i);														// Debug
 			display_all_ville(ligne_table[i].ville_tab, nb_ville_ligne);					// Affichage de toute les villes enregistrées
 			fgets(parsing, 100, fichier);													// Récupération du nombre de ligne
 			int nb_pass_ligne = atoi(parsing);												// Convertion du nombre de ligne en nombre entier
 			init_horaire_table(&ligne_table[i], nb_pass_ligne, nb_ville_ligne);				// Initailisation de la table des horaires
-			printf("Ligne %d\n", i);														// Debug
 			for (int x = 0; x < nb_pass_ligne; ++x)											// Début du parsing des horaires de la lignes
 			{
 				fgets(parsing, 100, fichier);												// Récupération de la ligne
@@ -106,6 +106,23 @@ int main(int argc, char const *argv[])
 			}
 			afficher_horaires_all(ligne_table[i].horaires, nb_pass_ligne, nb_ville_ligne);	// Affichage de debug des horaires d'une ligne
 		}
+	/*	for (int i = 0; i < ligne_table_size; ++i)
+			{
+				for (int j = 0; j < ligne_table[i].nb_villes; ++j)
+				{
+					for (int x = 0; x < ville_table_size; ++x)
+					{
+						if ((ligne_table[i].ville_tab[j].abscisse == ville_table[x].abscisse) && (ligne_table[i].ville_tab[j].ordonnee == ville_table[x].ordonnee))
+						{
+							for (int y = 0; y < 200 || ville_table[x].in_ligne[y] != -1; ++y)
+							{
+								ville_table[x].in_ligne[y] = i;
+								ville_table[x].rank_ligne[y] = j;
+							}
+						}
+					}
+				}
+			}*/ //Pas encore fonctionnel
 	}
 	else																					// Si le fichier n'est pas charger
 	{

@@ -7,6 +7,8 @@ void init_ville(ville * city, uint abs, uint ord)
 {
 	city->abscisse = abs;
 	city->ordonnee = ord;
+	city->in_ligne = (int *) malloc(sizeof(int) * 200);
+	city->rank_ligne = (int *) malloc(sizeof(int) * 200);
 }
 
 uint get_abs(ville * city)
