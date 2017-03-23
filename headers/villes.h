@@ -15,5 +15,6 @@ void init_ville(ville *, uint, uint);
 uint get_abs(ville *);
 uint get_ord(ville *);
 void display_all_ville(ville *, int);
+void display_lignes_of_villes(ville * , int);
 
 #endif

@@ -106,23 +106,25 @@ int main(int argc, char const *argv[])
 			}
 			afficher_horaires_all(ligne_table[i].horaires, nb_pass_ligne, nb_ville_ligne);	// Affichage de debug des horaires d'une ligne
 		}
-	/*	for (int i = 0; i < ligne_table_size; ++i)
+		//Boulce de remplissage des voisins
+		for (int i = 0; i < ligne_table_size; ++i)											// Parcours des lignes
 			{
-				for (int j = 0; j < ligne_table[i].nb_villes; ++j)
+				for (int j = 0; j < ligne_table[i].nb_villes; ++j)							// Parccours des villes
 				{
-					for (int x = 0; x < ville_table_size; ++x)
+					for (int x = 0; x < ville_table_size; ++x)								// Boucle pour comparer les villes
 					{
 						if ((ligne_table[i].ville_tab[j].abscisse == ville_table[x].abscisse) && (ligne_table[i].ville_tab[j].ordonnee == ville_table[x].ordonnee))
 						{
-							for (int y = 0; y < 200 || ville_table[x].in_ligne[y] != -1; ++y)
-							{
-								ville_table[x].in_ligne[y] = i;
-								ville_table[x].rank_ligne[y] = j;
-							}
+
+							ville_table[x].in_ligne[i] = i;
+							ville_table[x].rank_ligne[i] = j;
+
+							//printf("La ville %d est dans la ligne %d au rang %d\n", x, i, j);
 						}
 					}
 				}
-			}*/ //Pas encore fonctionnel
+			}
+		display_lignes_of_villes(ville_table, ville_table_size);
 	}
 	else																					// Si le fichier n'est pas charger
 	{
